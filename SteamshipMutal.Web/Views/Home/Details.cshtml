@@ -1,0 +1,61 @@
+﻿@model SteamshipMutal.Web.Models.StaffSalesPerformanceViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Staff Details</h1>
+
+<div>
+    <hr />
+
+    @if (Model == null)
+    {
+        <h4 class="alert-warning">No data found for the staff</h4>
+    }
+    else
+    {
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Staff Id
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StaffId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manager)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manager)
+        </dd>
+        <dt class = "col-sm-2">
+            Company Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+        <dt class = "col-sm-2">
+            Sales Amount
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SalesAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            Sales Count
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SalesCount)
+        </dd>
+    </dl>
+    }
+</div>
+<div>
+    <a asp-action="Index" asp-route-pageIndex="@Context.Request.Query["pageIndex"]" class="btn btn-primary">Back to List</a>
+</div>
