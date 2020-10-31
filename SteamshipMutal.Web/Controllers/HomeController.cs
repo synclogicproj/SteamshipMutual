@@ -29,7 +29,7 @@ namespace SteamshipMutal.Web.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                string endpoint = _configuration["baseUrl"] + "/staff/" + pageIndex + "/" + pageSize;
+                string endpoint = $"{_configuration["baseUrl"]}/staff/{pageIndex}/{pageSize}";
 
                 using (var response = await client.GetAsync(endpoint))
                 {
