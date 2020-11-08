@@ -1,0 +1,16 @@
+<dl class="row" *ngIf="staff">
+  <dt class="col-sm-6">Staff Id</dt>
+  <dd class="col-sm-6">{{ staff.staffId }}</dd>
+  <dt class="col-sm-6">Name</dt>
+  <dd class="col-sm-6">{{ staff.name }}</dd>
+  <dt class="col-sm-6">Manager</dt>
+  <dd class="col-sm-6">{{ staff.manager }}</dd>
+  <dt class="col-sm-6">Company Name</dt>
+  <dd class="col-sm-6">{{ staff.companyName }}</dd>
+  <dt class="col-sm-6">Sales Amount</dt>
+  <dd class="col-sm-6">{{ staff.salesAmount | currency: "GBP" }}</dd>
+  <dt class="col-sm-6">Sales Count</dt>
+  <dd class="col-sm-6">{{ staff.salesCount }}</dd>
+</dl>
+<hr />
+<a class="btn btn-primary" [routerLink]="['', start, size]">Back</a>

@@ -22,9 +22,27 @@ namespace SteamshipMutual.API.Controllers
 
         // GET: api/<StaffController>
         [HttpGet("{pageIndex}/{pageSize}")]
-        public async Task<ActionResult<StaffSalesPerformance>> Get(int pageIndex, int pageSize)
+        public async Task<ActionResult<StaffSalesPerformanceResponse>> Get(int pageIndex, int pageSize)
         {
-            return Ok(await _companySalesService.GetStaffTotalSales(pageIndex, pageSize));
+            var response = new StaffSalesPerformanceResponse();
+            response.Items = await _companySalesService.GetStaffTotalSales(pageIndex, pageSize);
+            response.MetaData = new StaffSalesPerformanceMetaData
+            {
+                CurrentPage = pageIndex,
+                ItemsPerPage = pageSize,
+                TotalItems = await _companySalesService.GetStaffTotalSalesCount(),
+            };
+            response.MetaData.TotalPages = Math.Ceiling((double)response.MetaData.TotalItems / (double)pageSize);
+
+            response.Links = new PaginationLinks
+            {
+                First = $"/{1}/{pageSize}",
+                Next = $"/{pageIndex + 1}/{pageSize}",
+                Previous = $"/{pageIndex - 1}/{pageSize}",
+                Last = $"/{response.MetaData.TotalPages}/{pageSize}"
+            };
+
+            return Ok(response);
         }
 
         // GET api/<StaffController>/5

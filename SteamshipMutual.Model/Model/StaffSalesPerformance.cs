@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace SteamshipMutual.Model
 {
+
     public class StaffSalesPerformance
     {
         public int StaffId { get; set; }

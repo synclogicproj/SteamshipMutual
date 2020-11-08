@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "bootstrap": "^4.5.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1002.0",
+    "@angular/platform-browser-dynamic": "^10.2.2",
+    "@angular/router": "^10.2.2"
+  }
+}
